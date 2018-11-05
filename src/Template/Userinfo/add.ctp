@@ -20,7 +20,12 @@
             echo $this->Form->control('user_id', ['options' => $users,
                 'label' => 'ユーザID'
             ]);
-            echo $this->Form->control('sex',
+            $options = [
+                '1' => '男性',
+                '2' => '女性',
+                '3' => 'その他'
+            ];
+            echo $this->Form->radio('sex', $options,
             [
                 'label' => '性別'
             ]);

@@ -31,8 +31,9 @@
             <td><?= $this->Number->format($userinfo->sex) ?></td>
         </tr>
         <tr>
+        <!--以下生年月日表記を正しく修正する-->
             <th scope="row"><?= __('Birthday') ?></th>
-            <td><?= $this->Number->format($userinfo->birthday) ?></td>
+            <td><?= $userinfo->birthday ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Hight') ?></th>

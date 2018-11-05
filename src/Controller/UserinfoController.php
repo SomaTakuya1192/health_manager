@@ -57,7 +57,9 @@ class UserinfoController extends AppController
             if ($this->Userinfo->save($userinfo)) {
                 $this->Flash->success(__('The userinfo has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                 //以下リダイレクト先を指定するここ大事
+                 return $this->redirect([
+                    'controller' => 'users' , 'action' => 'view',$userinfo->user_id]);
             }
             $this->Flash->error(__('The userinfo could not be saved. Please, try again.'));
         }
@@ -81,8 +83,10 @@ class UserinfoController extends AppController
             $userinfo = $this->Userinfo->patchEntity($userinfo, $this->request->getData());
             if ($this->Userinfo->save($userinfo)) {
                 $this->Flash->success(__('The userinfo has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                //以下リダイレクト先を指定するここ大事
+                return $this->redirect([
+                    'controller' => 'users' , 'action' => 'view',$userinfo->user_id]);
             }
             $this->Flash->error(__('The userinfo could not be saved. Please, try again.'));
         }
@@ -107,6 +111,8 @@ class UserinfoController extends AppController
             $this->Flash->error(__('The userinfo could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+         //以下リダイレクト先を指定するここ大事
+         return $this->redirect([
+            'controller' => 'users' , 'action' => 'view',$userinfo->user_id]);
     }
 }

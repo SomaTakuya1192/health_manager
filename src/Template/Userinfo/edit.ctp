@@ -24,7 +24,15 @@
         <legend><?= __('Edit Userinfo') ?></legend>
         <?php
             echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('sex');
+            $options = [
+                '1' => '男性',
+                '2' => '女性',
+                '3' => 'その他'
+            ];
+            echo $this->Form->radio('sex', $options,
+            [
+                'label' => '性別'
+            ]);
             echo $this->Form->control('birthday');
             echo $this->Form->control('hight');
         ?>

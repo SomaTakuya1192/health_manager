@@ -57,7 +57,8 @@ class UserweightController extends AppController
             if ($this->Userweight->save($userweight)) {
                 $this->Flash->success(__('The userweight has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                //リダイレクト先の変更　体重追加画面からユーザ詳細一覧へ遷移させる
+                return $this->redirect(['controller' => 'users' , 'action' => 'view',$userweight->user_id]);
             }
             $this->Flash->error(__('The userweight could not be saved. Please, try again.'));
         }
@@ -82,7 +83,8 @@ class UserweightController extends AppController
             if ($this->Userweight->save($userweight)) {
                 $this->Flash->success(__('The userweight has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                //リダイレクト先を追加、体重編集からユーザ情報詳細へ
+                return $this->redirect(['controller' => 'users' , 'action' => 'view' , $userweight->user_id]);
             }
             $this->Flash->error(__('The userweight could not be saved. Please, try again.'));
         }
@@ -107,6 +109,7 @@ class UserweightController extends AppController
             $this->Flash->error(__('The userweight could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
-    }
+         //リダイレクト先を追加、体重編集からユーザ情報詳細へ
+         return $this->redirect(['controller' => 'users' , 'action' => 'view' , $userweight->user_id]);
+        }
 }

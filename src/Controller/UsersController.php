@@ -22,6 +22,7 @@ class UsersController extends AppController
      */
     public function index()
     {
+        //検索ボックスをここに入れたい。
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));

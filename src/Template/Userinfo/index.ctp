@@ -32,7 +32,8 @@
                 <td><?= $this->Number->format($userinfo->id) ?></td>
                 <td><?= $userinfo->has('user') ? $this->Html->link($userinfo->user->id, ['controller' => 'Users', 'action' => 'view', $userinfo->user->id]) : '' ?></td>
                 <td><?= $this->Number->format($userinfo->sex) ?></td>
-                <td><?= $this->Number->format($userinfo->birthday) ?></td>
+                <!--以下の調べて正しいい表記を追加する-->
+                <td><?= $userinfo->birthday ?></td>
                 <td><?= $this->Number->format($userinfo->hight) ?></td>
                 <td><?= h($userinfo->created) ?></td>
                 <td class="actions">

@@ -65,7 +65,7 @@ class UserinfoTable extends Table
             ->notEmpty('sex');
 
         $validator
-            ->integer('birthday')
+            ->date('birthday')
             ->requirePresence('birthday', 'create')
             ->notEmpty('birthday');
 

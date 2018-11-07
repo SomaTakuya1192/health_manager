@@ -24,8 +24,23 @@ class UsersController extends AppController
     {
         //検索ボックスをここに入れたい。
         $users = $this->paginate($this->Users);
+        $this->set(compact('sers'));
+       
+       if ($this->request->is('Post')){
+            $find = $this->request->data['Users']['find'];
+            $condition = ['conditions'=>['username like'=>$find]];
+            $data = $this->Users->find('all', $condition);
+        } else {
+            $data = $this->Users->find('all');
+        }
 
-        $this->set(compact('users'));
+        
+
+        //ここに検索に引っかからなかった時のはなし。
+
+
+
+        $this->set('data',$data);
     }
 
     /**

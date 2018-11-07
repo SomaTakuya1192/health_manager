@@ -8,11 +8,14 @@
     <ul class="side-nav">
         <li class="heading"><?= __('内容') ?></li>
         <li><?= $this->Html->link(__('新規ユーザ追加'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('ユーザ情報一覧'), ['controller' => 'Userinfo', 'action' => 'index']) ?></li>
+        
+       <?php /*
+       <li><?= $this->Html->link(__('ユーザ情報一覧'), ['controller' => 'Userinfo', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('新規ユーザ情報を追加'), ['controller' => 'Userinfo', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('体重一覧'), ['controller' => 'Userweight', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('体重を追加する'), ['controller' => 'Userweight', 'action' => 'add']) ?></li>
-    </ul>
+        */?>
+        </ul>
 </nav>
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('ユーザ一覧') ?></h3>
@@ -34,7 +37,6 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('ID') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('名前') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('暗証キー') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('権限') ?></th>
                 <th scope="col" class="actions"><?= __('編集') ?></th>
             </tr>
@@ -43,10 +45,10 @@
             <?php foreach($data->toArray() as $obj): ?>
             <tr>
             <td><?=h($obj->id) ?></td>
-            <td><a href="<?=$this->Url->build(['controller'=>'Users',
-                'action'=>'edit']); ?>?id=<?=$obj->id ?>">
+            <td>
+                <?php /*<a href="<?=$this->Url->build(['controller'=>'Users',
+                'action'=>'edit']); ?>?id=<?=$obj->id ?>">*/ ?>
                 <?= h($obj->username) ?></a></td>
-            <td><?= h($obj->password) ?></td>
             <td><?= h($obj->role) ?></td>
             <td class="actions">
                     <?= $this->Html->link(__('詳細/'), ['action' => 'view', $obj->id]) ?>
@@ -110,11 +112,11 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('最初')) ?>
+            <?= $this->Paginator->prev('< ' . __('戻る')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('次へ') . ' >') ?>
+            <?= $this->Paginator->last(__('最後') . ' >>') ?>
         </ul>
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>

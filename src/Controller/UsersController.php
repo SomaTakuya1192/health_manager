@@ -27,7 +27,7 @@ class UsersController extends AppController
         $this->set(compact('sers'));
        
        if ($this->request->is('Post')){
-            $find = $this->request->data['Users']['find'];
+            $find = "%".$this->request->data['Users']['find']."%";
             $condition = ['conditions'=>['username like'=>$find]];
             $data = $this->Users->find('all', $condition);
         } else {
@@ -191,6 +191,12 @@ public function isAuthorized($user = null){
 	// 他はすべてfalse
 	return false;
 }
+//以下ページネーションの挑戦
+public $paginate = [
+    'limit' => 5,
+    'direction' => 'asc',
+    'contain'=> ['Users'],
+];
 
 }
 

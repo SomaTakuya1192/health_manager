@@ -31,7 +31,13 @@
             ]);
             echo $this->Form->control('birthday',
             [
-                'label' => '生年月日'
+                'label' => '生年月日',
+                'type' => 'date',
+                'dateFormat' => 'YMD',
+                'monthNames' => false,
+                'maxYear' => date('Y'),
+                'minYear' => date('Y') - 90,
+                'empty' => '---'
             ]);
             echo $this->Form->control('hight',
             [

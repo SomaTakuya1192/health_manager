@@ -23,9 +23,10 @@ class UsersController extends AppController
     public function index()
     {
         //検索ボックスをここに入れたい。
-        $users = $this->paginate($this->Users);
-        $this->set(compact('sers'));
-       
+        $users = $this->paginate($this->Users);//ページネーション系？
+        $this->set(compact('sers'));//ページネーション系？
+        $this->set('users',$this->paginate());
+
        if ($this->request->is('Post')){
             $find = "%".$this->request->data['Users']['find']."%";
             $condition = ['conditions'=>['username like'=>$find]];
@@ -39,7 +40,7 @@ class UsersController extends AppController
         //ここに検索に引っかからなかった時のはなし。
 
 
-
+        //$data = $this->paginate($this->Users);//追加したやつ
         $this->set('data',$data);
     }
 
@@ -126,7 +127,8 @@ class UsersController extends AppController
     public function initialize()
 {
 	parent::initialize();
-	// 各種コンポーネントのロード
+    // 各種コンポーネントのロード
+    $this->loadComponent('Paginator');//追加したやつ
 	$this->loadComponent('RequestHandler');
 	$this->loadComponent('Flash');
 	$this->loadComponent('Auth', [
@@ -175,7 +177,7 @@ public function logout() {
 // 認証を使わないページの設定
 public function beforeFilter(Event $event) {
 	parent::beforeFilter($event);
-	$this->Auth->allow(['login','index','add']); // 後で'add'を削除する
+	$this->Auth->allow(['login','index',]); // 後で'add'を削除する
 }
 
 // 認証時のロールのチェック
@@ -192,11 +194,10 @@ public function isAuthorized($user = null){
 	return false;
 }
 //以下ページネーションの挑戦
-public $paginate = [
-    'limit' => 5,
-    'direction' => 'asc',
-    'contain'=> ['Users'],
-];
 
+    public $paginate = [
+        'limit' => 5,
+    ];
+    
 }
 

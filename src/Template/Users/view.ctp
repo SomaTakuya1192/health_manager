@@ -7,8 +7,8 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('内容') ?></li>
-        <li><?= $this->Html->link(__('編集'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('削除'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
+        <li><?= $this->Html->link(__('ユーザ情報編集'), ['action' => 'edit', $user->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('ユーザ情報削除'), ['action' => 'delete', $user->id], ['confirm' => __('本当に削除してもよろしいですか?', $user->id)]) ?> </li>
         <hr>
         <?php /*
         <li><?= $this->Html->link(__('新規ユーザ追加'), ['action' => 'add']) ?> </li>
@@ -33,7 +33,7 @@
      
     </table>
     <div class="related">
-        <h4><?= __('ユーザ情報') ?></h4>
+        <h4><?= __('ユーザ情報') ?></h4>　<!--ユーザ情報-->
         <?php if (!empty($user->userinfo)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -71,7 +71,7 @@
                     <?= $this->Html->link(__('詳細/'), ['controller' => 'Userinfo', 'action' => 'view', $userinfo->id]) ?>
                 */?>
                     <?= $this->Html->link(__('編集/'), ['controller' => 'Userinfo', 'action' => 'edit', $userinfo->id]) ?>
-                    <?= $this->Form->postLink(__('削除'), ['controller' => 'Userinfo', 'action' => 'delete', $userinfo->id], ['confirm' => __('Are you sure you want to delete # {0}?', $userinfo->id)]) ?>
+                    <?= $this->Form->postLink(__('削除'), ['controller' => 'Userinfo', 'action' => 'delete', $userinfo->id], ['confirm' => __('本当に削除してもよろしいですか?', $userinfo->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -79,7 +79,7 @@
         <?php endif; ?>
     </div>
     <div class="related">
-        <h4><?= __('体重一覧') ?></h4>
+        <h4><?= __('体重一覧') ?></h4> <!--ここにページネーションを入れたい-->
         <?php if (!empty($user->userweight)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -96,12 +96,15 @@
                     <?= $this->Html->link(__('表示/'), ['controller' => 'Userweight', 'action' => 'view', $userweight->id]) ?>
                     */?>
                     <?= $this->Html->link(__('編集/'), ['controller' => 'Userweight', 'action' => 'edit', $userweight->id]) ?>
-                    <?= $this->Form->postLink(__('削除'), ['controller' => 'Userweight', 'action' => 'delete', $userweight->id], ['confirm' => __('Are you sure you want to delete # {0}?', $userweight->id)]) ?>
+                    <?= $this->Form->postLink(__('削除'), ['controller' => 'Userweight', 'action' => 'delete', $userweight->id], ['confirm' => __('本当に削除してもよろしいですか?', $userweight->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
+
+
+        
 
         <!--以下ページネーター-->
         <?php /*

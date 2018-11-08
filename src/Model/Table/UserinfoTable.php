@@ -71,6 +71,7 @@ class UserinfoTable extends Table
 
         $validator
             ->integer('hight')
+            ->maxLength('hight', 4)
             ->requirePresence('hight', 'create')
             ->notEmpty('hight');
 

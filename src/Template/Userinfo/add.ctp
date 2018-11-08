@@ -37,14 +37,16 @@
                 'monthNames' => false,
                 'maxYear' => date('Y'),
                 'minYear' => date('Y') - 90,
-                'empty' => '---'
+                'empty' => array('year' => '年', 'month' => '月', 'day' => '日')
             ]);
             echo $this->Form->control('hight',
             [
                 'label' => '身長'
+                //ここにマイナス禁止のやつを入れたい
+
             ]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('ユーザ情報を更新する')) ?>
+    <?= $this->Form->button(__('ユーザ情報を追加する')) ?>
     <?= $this->Form->end() ?>
 </div>

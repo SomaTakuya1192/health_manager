@@ -61,6 +61,7 @@ class UserweightTable extends Table
 
         $validator
             ->integer('weight')
+            ->maxLength('weight', 3)
             ->requirePresence('weight', 'create')
             ->notEmpty('weight');
 

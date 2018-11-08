@@ -60,13 +60,13 @@ class UsersTable extends Table
 
         $validator
             ->scalar('username')
-            ->maxLength('username', 100)
+            ->maxLength('username', 50)
             ->requirePresence('username', 'create')
             ->notEmpty('username');
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 100)
+            ->maxLength('password', 50)
             ->requirePresence('password', 'create')
             ->notEmpty('password');
 

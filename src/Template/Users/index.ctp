@@ -53,7 +53,7 @@
             <td class="actions">
                     <?= $this->Html->link(__('詳細/'), ['action' => 'view', $obj->id]) ?>
                     <?= $this->Html->link(__('編集/'), ['action' => 'edit', $obj->id]) ?>
-                    <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $obj->id], ['confirm' => __('Are you sure you want to delete # {0}?', $obj->id)]) ?>
+                    <?= $this->Form->postLink(__('削除'), ['action' => 'delete', $obj->id], ['confirm' => __('本当に削除してもよろしいですか?', $obj->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

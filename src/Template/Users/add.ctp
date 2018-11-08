@@ -8,10 +8,13 @@
     <ul class="side-nav">
         <li class="heading"><?= __('内容') ?></li>
         <li><?= $this->Html->link(__('ユーザ一覧'), ['action' => 'index']) ?></li>
+        
+        <?php /*
         <li><?= $this->Html->link(__('ユーザ情報一覧'), ['controller' => 'Userinfo', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('ユーザ情報を追加'), ['controller' => 'Userinfo', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('体重一覧'), ['controller' => 'Userweight', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('新規体重を入力'), ['controller' => 'Userweight', 'action' => 'add']) ?></li>
+         */ ?>
     </ul>
 </nav>
 <div class="users form large-9 medium-8 columns content">

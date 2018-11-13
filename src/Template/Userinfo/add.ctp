@@ -41,7 +41,8 @@
             ]);
             echo $this->Form->control('hight',
             [
-                'label' => '身長'
+                'label' => '身長',
+                'rule' => 'numeric'
                 //ここにマイナス禁止のやつを入れたい
 
             ]);

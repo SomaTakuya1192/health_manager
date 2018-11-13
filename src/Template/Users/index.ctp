@@ -42,7 +42,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($data->toArray() as $obj): ?>
+            <?php foreach($users->toArray() as $obj): ?>
             <tr>
             <td><?=h($obj->id) ?></td>
             <td>

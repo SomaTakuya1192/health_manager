@@ -80,14 +80,15 @@
     </div>
     <div class="related">
         <h4><?= __('体重一覧') ?></h4> <!--ここにページネーションを入れたい-->
-        <?php if (!empty($user->userweight)): ?>
+        <?php if (!empty($user->userweight)): ?><!--ここをいじる-->
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('体重') ?></th>
                 <th scope="col"><?= __('測定日') ?></th>
                 <th scope="col" class="actions"><?= __('編集') ?></th>
             </tr>
-            <?php foreach ($user->userweight as $userweight): ?>
+            <?php foreach ($user->userweight as $userweight): ?><!--ここをいじる-->
+            
             <tr>
                 <td><?= h($userweight->weight) ?> Kg</td>
                 <td><?= h($userweight->created) ?></td>
@@ -102,12 +103,7 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-
-
-        
-
-        <!--以下ページネーター-->
-        <?php /*
+     
         <div class="paginator">
             <ul class="pagination">
                 <?= $this->Paginator->first('<< ' . __('最初')) ?>
@@ -116,6 +112,6 @@
                 <?= $this->Paginator->last(__('最後') . ' >>') ?>
             </ul>
         </div>
-        */?>
+     
     </div>
 </div>

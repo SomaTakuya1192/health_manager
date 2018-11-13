@@ -73,7 +73,8 @@ class UserinfoTable extends Table
             ->integer('hight')
             ->maxLength('hight', 4)
             ->requirePresence('hight', 'create')
-            ->notEmpty('hight');
+            ->notEmpty('hight')
+            ->greaterThan('hight', 10); //10以下だとエラーになるよ
 
         return $validator;
     }

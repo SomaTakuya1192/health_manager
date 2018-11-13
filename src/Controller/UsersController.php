@@ -40,8 +40,8 @@ class UsersController extends AppController
         //ここに検索に引っかからなかった時のはなし。
 
 
-        //$data = $this->paginate($this->Users);//追加したやつ
-        $this->set('data',$data);
+        $data = $this->paginate($this->Users);//追加したやつ
+       // $this->set('data',$data);
     }
 
     /**
@@ -58,6 +58,10 @@ class UsersController extends AppController
         ]);
 
         $this->set('user', $user);
+
+        //ここのなかにページネーションを追加する。
+        $data = $this->paginate($this->Users);
+        $this->set('data',$data);
     }
 
     /**
@@ -198,6 +202,12 @@ public function isAuthorized($user = null){
     public $paginate = [
         'limit' => 5,
     ];
-    
+
+    /*
+    public $components = array('Paginator');
+    public $paginate = array(
+        'limit' => 5,
+    );
+    */
 }
 
